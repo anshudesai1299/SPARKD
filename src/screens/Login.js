@@ -86,11 +86,15 @@ export default class Login extends React.Component{
                     paddingVertical:10,
                     borderRadius:23
                 }}>
-                    <Text style={{
+                    <Text 
+                     onPress={()=>navigate('Dashboard')}
+                    style={{
                         color:"white",
                         fontFamily:"SemiBold"
                     }}>Login</Text>
                 </View>
+
+
                 <Text 
                 
                 onPress={()=>navigate('Register')}
