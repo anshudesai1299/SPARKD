@@ -97,7 +97,7 @@ export default class Login extends React.Component{
 
                 <Text 
                 
-                onPress={()=>navigate('Register')}
+                onPress={()=>navigate('Gauge')}
                 
                 style={{
                     alignSelf:"center",
