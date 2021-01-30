@@ -53,11 +53,8 @@ export default class ReviewBar extends React.Component{
 render()
 {
     return(
-        <View style={styles.viewStyle}>
+        <View style={styles.container}>
 
-
-         <View style={{flex:1,flexDirection: 'row', paddingTop :20}}>
-         
           
          <Text style= {styles.textStyle}>DSS</Text>
           <Picker
@@ -66,6 +63,7 @@ render()
             style={styles.pickerStyle}
             selectedValue={this.state.selectedcat}
             onValueChange={this.onValueChangeCat.bind(this)}
+            
           >
             
             {this.state.category.map((item, index) => (
@@ -77,9 +75,9 @@ render()
               />
             ))}
           </Picker>
+
         </View>
-        </View>
-      
+        
     );
 }
 
@@ -90,49 +88,49 @@ const styles = StyleSheet.create({
     viewStyle: {
       flex: 1,
       alignSelf: "top",
-      marginTop: 40,
-      //marginLeft :"5%",
+      marginTop: 20,
+      marginLeft :50,
       flexDirection: "row",
       width: "92%",
-      justifyContent: "space-around",
-      alignItems: "top",
-      backgroundColor:'white',
+     // justifyContent: "space-around",
+     // alignItems: "top",
+      //backgroundColor:'white',
       opacity:50
     },
+
+    container: {
+      flex: 1,
+      flexDirection:'row',
+      alignItems: 'left',
+     //justifyContent: 'center',
+      marginLeft:0,
+      paddingTop: 40,
+     // backgroundColor: 'white'
+  },
     itemStyle: {
       fontSize: 20,
       fontFamily: "Roboto-Regular",
       color: "#007aff"
     },
     pickerStyle: {
-      width: 80,
-      marginTop: 20,
+      width: 100,
+     // marginTop: 20,
       //marginHorizontal : "50%",
       marginLeft :"2%",
       alignItems: "top",
-      height: 40,
+      height: 30,
       color: "#007aff",
       fontSize: 20,
       fontFamily: "Roboto-Regular"
     },
     textStyle: {
-      fontSize: 20,
+      fontSize: 30,
       marginLeft:"20%",
       fontFamily: "Roboto-Regular",
       textAlign:"left",
 
     },
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      padding: 8,
-      paddingTop: 30,
-      backgroundColor: '#9df7fa',
-      },
-      label: {
-        margin: 8,
-      },
-  
+   
   }
   
   );

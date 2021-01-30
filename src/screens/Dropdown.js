@@ -34,11 +34,11 @@ render()
 {
     return(
         <View style={styles.viewStyle}>
-          <View style={{ flex: 0.3 ,flexDirection:'row',justifyContent : 'flex-end'}}>
+          <View style={{ flex: 1, flexDirection:'row',justifyContent:'flex-end'}}>
           <Text style={styles.textStyle}>Ship Names</Text>
         </View>
-        <View style={{ flex: 0.7, fontSize: 14 }}>
-        <View style={{ flex: 0.3 ,flexDirection:'row',justifyContent : 'flex-end'}}>
+        <View style={{ fontSize: 14 }}>
+        <View style={{flex: 1,flexDirection:'row',justifyContent:'flex-end'}}>
           <Picker
             itemStyle={styles.itemStyle}
             mode="dropdown"
@@ -64,16 +64,16 @@ render()
 }
 
 
-const styles = StyleSheet.create({
+/*const styles = StyleSheet.create({
     viewStyle: {
       //flex: 1,
-      alignSelf: "top",
-      marginTop: 40,
+     // alignSelf: "top",
+      marginTop: 20,
       //marginLeft :"5%",
   //flexDirection: "row",
       width: "92%",
      // justifyContent: "space-around",
-      alignItems: "top",
+    //  alignItems: "top",
       backgroundColor:'white',
       opacity:50
     },
@@ -84,10 +84,10 @@ const styles = StyleSheet.create({
     },
     pickerStyle: {
       width: "30%",
-      marginTop: 20,
+      marginTop: 10,
       //marginHorizontal : "50%",
       marginLeft :"2%",
-      alignItems: "top",
+      //alignItems: "top",
       height: 40,
       color: "#007aff",
       fontSize: 20,
@@ -111,4 +111,56 @@ const styles = StyleSheet.create({
   
   }
   
-  );
+  );*/
+
+
+
+
+  const styles = StyleSheet.create({
+    viewStyle: {
+      flex: 1,
+      alignSelf: "top",
+      //marginTop: 20,
+      //marginLeft :50,
+      flexDirection: "row",
+      width: "92%",
+     // justifyContent: "space-around",
+     // alignItems: "top",
+      //backgroundColor:'white',
+      opacity:50
+    },
+
+    container: {
+      flex: 1,
+      flexDirection:'row',
+      alignItems: 'left',
+     //justifyContent: 'center',
+     
+      paddingTop: 20,
+     // backgroundColor: 'white'
+  },
+    itemStyle: {
+      fontSize: 25,
+      fontFamily: "Roboto-Regular",
+      color: "#007aff"
+    },
+    pickerStyle: {
+      width: 250,
+     // marginTop: 20,
+      //marginHorizontal : "50%",
+      marginLeft :50,
+      //alignItems: "top",
+      height: 30,
+      color: "#007aff",
+      fontSize: 20,
+      fontFamily: "Roboto-Regular"
+    },
+    textStyle: {
+      fontSize: 30,
+      //marginLeft:"20%",
+      fontFamily: "Roboto-Regular",
+      textAlign:"right",
+
+    },
+   
+  });

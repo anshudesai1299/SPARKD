@@ -87,7 +87,7 @@ export default class Login extends React.Component{
                     borderRadius:23
                 }}>
                     <Text 
-                     onPress={()=>navigate('Dashboard')}
+                     onPress={()=>navigate('Sidebar')}
                     style={{
                         color:"white",
                         fontFamily:"SemiBold"

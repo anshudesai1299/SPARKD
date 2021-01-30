@@ -9,9 +9,16 @@ import Dropdown from '../screens/Dropdown';
 import Sidebar from '../screens/Sidebar';
 import Dssdropdown from '../screens/Dssdropdown';
 import WindForce from '../screens/WindForce';
+import Checkbox from '../screens/Checkbox';
+
+import Environment from '../screens/Environment';
+import Operational from '../screens/Operational';
+import Maintenance from '../screens/Maintenance';
+import VesselPerformance from '../screens/VesselPerformance';
+
 
 const stackNavigatorOptions = {
-    headerShown:true
+    headerShown:false
 }
 const AppNavigator = createStackNavigator({
     Login:{screen:Login},
@@ -23,6 +30,11 @@ const AppNavigator = createStackNavigator({
     Sidebar:{screen:Sidebar},
     Dssdropdown:{screen:Dssdropdown},
     WindForce:{screen:WindForce},
+    Checkbox:{screen:Checkbox},
+    VesselPerformance:{screen:VesselPerformance},
+    Environment:{screen:Environment},
+    Operational:{screen:Operational},
+    Maintenance:{screen:Maintenance},
 },
 {
     defaultNavigationOptions : stackNavigatorOptions

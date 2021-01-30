@@ -20,9 +20,9 @@ export default class Linegraph extends React.Component
 {/*It is an Example of LineChart*/}
 <Text
 style={{
-textAlign: 'center', fontSize: 18,
-padding: 16,
-marginTop: 16,
+textAlign: 'center', fontSize: 30,
+//padding: 10,
+//marginTop: 5,
 }}>
 Line Chart
 </Text>
@@ -78,8 +78,9 @@ style: {
 borderRadius: 16,
 },
 }}
-style={{ marginVertical: 8,
+style={{ marginVertical: 20,
 borderRadius: 16,
+marginLeft:50,
 }}
 />
 </View>

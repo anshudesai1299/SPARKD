@@ -1,130 +1,219 @@
+// React Native Navigation Drawer
+// https://aboutreact.com/react-native-navigation-drawer/
+import 'react-native-gesture-handler';
+
 import * as React from 'react';
-import { View, Text } from 'react-native';
-import { NavigationContainer, DrawerActions } from '@react-navigation/native';
-import {MaterialIcons} from '@expo/vector-icons';
 import {
-  createDrawerNavigator,
-  DrawerContentScrollView,
-  DrawerItemList,
-  DrawerItem,
-} from '@react-navigation/drawer';
+  Button,
+  View,
+  Text,
+  TouchableOpacity,
+  Image
+} from 'react-native';
 
-function Information({ navigation }) {
-  return (
-    <View style={{ marginTop:10}}>
-      <MaterialIcons name='menu' size={28} onPress={() => navigation.dispatch(DrawerActions.openDrawer())} style={StyleSheet.icon} />
-      {/* <Text>"Hi</Text> */}
-    </View>
-  );
-}
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
-function CharterParty({ navigation }) {
-  return (
-    <View style={{ marginTop:10}}>
-      <MaterialIcons name='menu' size={28} onPress={() => navigation.dispatch(DrawerActions.openDrawer())} style={StyleSheet.icon}/>
-    </View>
-  );
-}
+//import FirstPage from './pages/FirstPage';
+import DashBoard from './DashBoard';
+import VesselPerformance from './VesselPerformance';
 
-function VesselPerformance({ navigation }) {
-  return (
-    <View style={{ marginTop:10}}>
-      <MaterialIcons name='menu' size={28} onPress={() => navigation.dispatch(DrawerActions.openDrawer())} style={StyleSheet.icon}/>
-    </View>
-  );
-}
 
-function Environmental({ navigation }) {
-    return (
-      <View style={{ marginTop:10}}>
-        <MaterialIcons name='menu' size={28} onPress={() => navigation.dispatch(DrawerActions.openDrawer())} style={StyleSheet.icon}/>
-      </View>
-    );
-  }
+import Environment from './Environment';
+import Operational from './Operational';
+import Maintenance from './Maintenance';
 
-  function Operational({ navigation }) {
-    return (
-      <View style={{ marginTop:10}}>
-        <MaterialIcons name='menu' size={28} onPress={() => navigation.dispatch(DrawerActions.openDrawer())} style={StyleSheet.icon}/>
-      </View>
-    );
-  }
-
-  function Maintainence({ navigation }) {
-    return (
-      <View style={{ marginTop:10}}>
-        <MaterialIcons name='menu' size={28} onPress={() => navigation.dispatch(DrawerActions.openDrawer())} style={StyleSheet.icon}/>
-      </View>
-    );
-  }
-
-  function About({ navigation }) {
-    return (
-      <View style={{ marginTop:10}}>
-        <MaterialIcons name='menu' size={28} onPress={() => navigation.dispatch(DrawerActions.openDrawer())} style={StyleSheet.icon}/>
-      </View>
-    );
-  }
-
-  function LogOut({ navigation }) {
-    return (
-      <View style={{ marginTop:10}}>
-        <MaterialIcons name='menu' size={28} onPress={() => navigation.dispatch(DrawerActions.openDrawer())} style={StyleSheet.icon}/>
-        <Text>"Hi</Text>
-      </View>
-    );
-  }
-// function Notifications({navigation}) {
-//   return (
-//     <View>
-//       <MaterialIcons name='menu' size={28} onPress={() => navigation.dispatch(DrawerActions.openDrawer())} style={StyleSheet.icon}/>
-//       <View 
-//     style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-//       <Text>Notifications Screen</Text>
-//     </View>
-  
-//     </View>
-   
-//   );  
-// }
-
-// function CustomDrawerContent(props) {
-//   return (
-//     <DrawerContentScrollView {...props}>
-//       <DrawerItemList {...props} />
-//       <DrawerItem
-//         label="Close drawer"
-//         onPress={() => props.navigation.dispatch(DrawerActions.closeDrawer())}
-//       />
-//       <DrawerItem
-//         label="Toggle drawer"
-//         onPress={() => props.navigation.dispatch(DrawerActions.toggleDrawer())}
-//       />
-//     </DrawerContentScrollView>
-//   );
-// }
-
+const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
-function MyDrawer() {
+const NavigationDrawerStructure = (props)=> {
+  //Structure for the navigatin Drawer
+  const toggleDrawer = () => {
+    //Props to open/close the drawer
+    props.navigationProps.toggleDrawer();
+  };
+
   return (
-    <Drawer.Navigator>
-      <Drawer.Screen name="Information" component={Information} />
-      <Drawer.Screen name="CharterParty" component={CharterParty} />
-      <Drawer.Screen name="Vessel Performance" component={VesselPerformance} />
-      <Drawer.Screen name="Environmental" component={Environmental} />
-      <Drawer.Screen name="Operational" component={Operational} />
-      <Drawer.Screen name="Maintainence" component={Maintainence} />
-      <Drawer.Screen name="About" component={About} />
-      <Drawer.Screen name="LogOut" component={LogOut} />
-    </Drawer.Navigator>
+    <View style={{ flexDirection: 'row' }}>
+      <TouchableOpacity onPress={()=> toggleDrawer()}>
+        {/*Donute Button Image */}
+        <Image
+          source={{uri: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/drawerWhite.png'}}
+          style={{
+            width: 25,
+            height: 25,
+            marginLeft: 5
+          }}
+        />
+      </TouchableOpacity>
+    </View>
   );
 }
 
-export default function Sidebar() {
+function firstScreenStack({ navigation }) {
+  return (
+      <Stack.Navigator initialRouteName="DashBoard">
+        <Stack.Screen
+          name="DashBoard"
+          component={DashBoard}
+          options={{
+            title: 'Charter Party KPI\'s', //Set Header Title
+            headerLeft: ()=>
+              <NavigationDrawerStructure
+                navigationProps={navigation}
+              />,
+            headerStyle: {
+              backgroundColor: '#00716F', //Set Header color
+            },
+            headerTintColor: '#fff', //Set Header text color
+            headerTitleStyle: {
+              fontWeight: 'bold', //Set Header text style
+            },
+          }}
+        />
+      </Stack.Navigator>
+  );
+}
+
+function environmentScreenStack({ navigation }) {
+  return (
+      <Stack.Navigator initialRouteName="Environment">
+        <Stack.Screen
+          name="Environmental KPI's"
+          component={Environment}
+          options={{
+            title: 'Environmental KPI\'s ', //Set Header Title
+            headerLeft: ()=>
+              <NavigationDrawerStructure
+                navigationProps={navigation}
+              />,
+            headerStyle: {
+              backgroundColor: '#00716F', //Set Header color
+            },
+            headerTintColor: '#fff', //Set Header text color
+            headerTitleStyle: {
+              fontWeight: 'bold', //Set Header text style
+            },
+          }}
+        />
+      </Stack.Navigator>
+  );
+}
+
+function operationalScreenStack({ navigation }) {
+  return (
+      <Stack.Navigator initialRouteName="Operational">
+        <Stack.Screen
+          name="OPerational KPI's"
+          component={Operational}
+          options={{
+            title: 'Operational KPI\'s ', //Set Header Title
+            headerLeft: ()=>
+              <NavigationDrawerStructure
+                navigationProps={navigation}
+              />,
+            headerStyle: {
+              backgroundColor: '#00716F', //Set Header color
+            },
+            headerTintColor: '#fff', //Set Header text color
+            headerTitleStyle: {
+              fontWeight: 'bold', //Set Header text style
+            },
+          }}
+        />
+      </Stack.Navigator>
+  );
+}
+
+function maintenanceScreenStack({ navigation }) {
+  return (
+      <Stack.Navigator initialRouteName="Maintenance">
+        <Stack.Screen
+          name="Maintenance KPI's"
+          component={Maintenance}
+          options={{
+            title: 'Maintenance KPI\'s ', //Set Header Title
+            headerLeft: ()=>
+              <NavigationDrawerStructure
+                navigationProps={navigation}
+              />,
+            headerStyle: {
+              backgroundColor: '#00716F', //Set Header color
+            },
+            headerTintColor: '#fff', //Set Header text color
+            headerTitleStyle: {
+              fontWeight: 'bold', //Set Header text style
+            },
+          }}
+        />
+      </Stack.Navigator>
+  );
+}
+
+function VesselPerformanceScreenStack({ navigation }) {
+  return (
+    <Stack.Navigator initialRouteName="VesselPerformance">
+      <Stack.Screen
+        name="Vessel Performance KPI's"
+        component={VesselPerformance}
+        options={{
+          title: 'Vessel Performance KPI\'s ', //Set Header Title
+          headerLeft: ()=>
+            <NavigationDrawerStructure
+              navigationProps={navigation}
+            />,
+          headerStyle: {
+            backgroundColor: '#00716F', //Set Header color
+          },
+          headerTintColor: '#fff', //Set Header text color
+          headerTitleStyle: {
+            fontWeight: 'bold', //Set Header text style
+          },
+        }}
+      />
+    </Stack.Navigator>
+);
+    
+}
+
+function Sidebar() {
   return (
     <NavigationContainer>
-      <MyDrawer />
+      <Drawer.Navigator
+        drawerContentOptions={{
+          activeTintColor: "#00716F",
+          itemStyle: { marginVertical: 5 },
+        }}>
+        <Drawer.Screen
+          name="Charter Party KPI"
+          options={{ drawerLabel: 'Charter Party KPI' }}
+          component={firstScreenStack} />
+
+        <Drawer.Screen
+          name="VesselPerformance"
+          options={{ drawerLabel: 'Vessel Performance KPI' }}
+          component={VesselPerformanceScreenStack} />
+
+        <Drawer.Screen
+          name="Environment"
+          options={{ drawerLabel: 'Environmental KPI' }}
+          component={environmentScreenStack} />
+
+        <Drawer.Screen
+          name="operational"
+          options={{ drawerLabel: 'Operational KPI' }}
+          component={operationalScreenStack} />
+
+        <Drawer.Screen
+          name="Maintenance"
+          options={{ drawerLabel: 'Maintenace KPI' }}
+          component={maintenanceScreenStack} />
+     
+      </Drawer.Navigator>
+      
     </NavigationContainer>
   );
 }
+
+export default Sidebar;
