@@ -1,0 +1,29 @@
+{
+    "ShipList":[
+       {
+          "ShipID":201,
+          "ShipName":"DEMO SHIP ASPL",
+          "ShipTypeID":999000005
+       },
+       {
+          "ShipID":462,
+          "ShipName":"Fujaira Bulk",
+          "ShipTypeID":999000005
+       },
+       {
+          "ShipID":458,
+          "ShipName":"IrianJaya",
+          "ShipTypeID":999000005
+       },
+       {
+          "ShipID":415,
+          "ShipName":"Kulu Bulk",
+          "ShipTypeID":999000005
+       },
+       {
+          "ShipID":451,
+          "ShipName":"Shanghai Ocean",
+          "ShipTypeID":999000005
+       }
+    ]
+ }

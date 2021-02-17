@@ -1,30 +1,11 @@
 import React, { Component } from "react";
 import { Picker, View, Text, StyleSheet } from "react-native";
+//import { ShipList } from "./example_1.json";
+import {ShipList} from "C:/Users/BEPROJECT/SPARKS/example_1.json";
+
 export default class ReviewBar extends React.Component{
     state = {
         selectedcat: "",
-        category: [
-          {
-            itemName: "DEMO SHIP ASPL ",
-            value: "DEMO SHIP ASPL ",
-          },
-          {
-            itemName: "Fujaira Bulk",
-            value:"Fujaira Bulk",
-          },
-          {
-            itemName: "IrianJaya",
-            value : "IrianJaya",
-          },
-          {
-            itemName: "Kulu Bulk",
-            value: "Kulu Bulk",
-          },
-          {
-            itemName: "Shanghai Ocean",
-            value:"Shanghai Ocean",
-          }
-        ]
       };
     
       async onValueChangeCat(value) {
@@ -46,11 +27,11 @@ render()
             selectedValue={this.state.selectedcat}
             onValueChange={this.onValueChangeCat.bind(this)}
           >
-            {this.state.category.map((item, index) => (
+            {ShipList.map((item, index) => (
               <Picker.Item
                 color="#0087F0"
-                label={item.itemName}
-                value={item.itemName}
+                label={item.ShipName}
+                value={item.ShipName}
                 index={index}
               />
             ))}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Picker, View, Text, StyleSheet } from "react-native";
+
 export default class ReviewBar extends React.Component{
     state = {
         selectedcat: "",

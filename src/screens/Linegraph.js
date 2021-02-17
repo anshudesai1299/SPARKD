@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, Dimensions, ScrollView } from 'react-native';
-
+import { DailySpeedCons } from "C:/Users/BEPROJECT/SPARKS/DailySpeedCons.json" ;
 import {
 LineChart,
 BarChart,
@@ -16,7 +16,12 @@ export default class Linegraph extends React.Component
   render()
   {
     return(
-<View>
+
+      <ScrollView horizontal={true}
+
+showsHorizontalScrollIndicator={true}
+>
+<View style={{width:200}}>
 {/*It is an Example of LineChart*/}
 <Text
 style={{
@@ -26,8 +31,16 @@ textAlign: 'center', fontSize: 30,
 }}>
 Line Chart
 </Text>
+
+
 <LineChart data={{
-labels: [ '1-Jan-16'
+/*labels:[DailySpeedCons.map((data1,key)=>{return (
+  <div key={key}>
+    {data1.TDate }
+  </div>)})]*/ 
+  labels: [DailySpeedCons.map(item => item.TDate.substring(0,10))],
+  //labels: DailySpeedCons[0].TDate,
+  /*[ '1-Jan-16'
 ,'2-Jan-16'
 ,'3-Jan-16'
 ,'4-Jan-16'
@@ -50,15 +63,17 @@ labels: [ '1-Jan-16'
 ,'28-Jan-16'
 ,'29-Jan-16'
 ,'30-Jan-16'
-],
+]*/
+
 datasets: [
 {
-data: [12.46,11.62,9.83,11.71,11.74,11.13,11.88,11,11.94,12,12.92,11.17,11,11.71,12.03,12.39,11.19,11.42,11.25,11.13,11.79,12.63,10.63],
+//data: [12.46,11.62,9.83,11.71,11.74,11.13,11.88,11,11.94,12,12.92,11.17,11,11.71,12.03,12.39,11.19,11.42,11.25,11.13,11.79,12.63,10.63],
+data : [DailySpeedCons.map(item => item.CPSpeed)],
 strokeWidth: 4,
 stroke:'#8800cc',
 },
 {
-    data: [13,13,13,13,13,13,13,13,12,12,12,12,12,12,12,13,13,13,13,13,13,13,13],
+  data : [DailySpeedCons.map(item => item.AvgSpeed)],
     strokeWidth: 2,
     stroke:'green',
     },
@@ -83,7 +98,10 @@ borderRadius: 16,
 marginLeft:50,
 }}
 />
+
 </View>
+
+</ScrollView>
 
     );
   }
