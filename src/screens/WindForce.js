@@ -3,16 +3,13 @@ import { Picker, View, Text, StyleSheet } from "react-native";
 export default class WindForce extends React.Component{
 
     state = {
-            selectedcat: "",
+            selectedcat: "5",
             category: [
               {
-                itemName: "0",
-                value: "0 ",
-              },
-              {
                 itemName: "1",
-                value: "1 ",
+                value: "1",
               },
+              
               {
                 itemName: "2",
                 value: "2",
@@ -49,14 +46,7 @@ export default class WindForce extends React.Component{
                 itemName: "10",
                 value: "10",
               },
-              {
-                itemName: "11",
-                value: "11",
-              },
-              {
-                itemName: "12",
-                value: "12",
-              },
+             
             ]
           };
         
@@ -72,7 +62,7 @@ export default class WindForce extends React.Component{
              
              
               
-             <Text  style= {styles.textStyle}>Windforce</Text>
+             <Text  style= {styles.textStyle}>Windforce less than :</Text>
               <Picker
                 itemStyle={styles.itemStyle}
                 mode="dropdown"
@@ -110,7 +100,7 @@ export default class WindForce extends React.Component{
             flex: 1,
             alignSelf: "top",
             marginTop: 40,
-            marginLeft :20,
+            //marginLeft :20,
             flexDirection: "row",
             width: "92%",
            // justifyContent: "space-around",
@@ -125,7 +115,7 @@ export default class WindForce extends React.Component{
             alignItems: 'left',
            //justifyContent: 'center',
             marginLeft:0,
-            paddingTop: 40,
+            //paddingTop: 40,
             //backgroundColor: 'white'
         },
           itemStyle: {
@@ -142,13 +132,13 @@ export default class WindForce extends React.Component{
             height: 30,
             color: "#007aff",
             fontSize: 20,
-            fontFamily: "Roboto-Regular"
+            fontFamily: "SemiBold"
           },
 
           textStyle: {
             fontSize: 30,
             marginLeft:"20%",
-            fontFamily: "Roboto-Regular",
+            fontFamily: "SemiBold",
             textAlign:"left",
           }
       

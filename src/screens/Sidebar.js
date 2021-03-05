@@ -23,6 +23,7 @@ import VesselPerformance from './VesselPerformance';
 import Environment from './Environment';
 import Operational from './Operational';
 import Maintenance from './Maintenance';
+import Login from './Login';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -151,15 +152,15 @@ function maintenanceScreenStack({ navigation }) {
   );
 }
 
-function VesselPerformanceScreenStack({ navigation }) {
+function LoginStack({ navigation }) {
   return (
-    <Stack.Navigator initialRouteName="VesselPerformance">
+    <Stack.Navigator initialRouteName="Logout">
       <Stack.Screen
-        name="Vessel Performance KPI's"
-        component={VesselPerformance}
+        name="Logut"
+        component={Login}
         options={{
-          title: 'Vessel Performance KPI\'s ', //Set Header Title
-          headerLeft: ()=>
+          //title: 'login page', //Set Header Title
+         /* headerLeft: ()=>
             <NavigationDrawerStructure
               navigationProps={navigation}
             />,
@@ -169,10 +170,16 @@ function VesselPerformanceScreenStack({ navigation }) {
           headerTintColor: '#fff', //Set Header text color
           headerTitleStyle: {
             fontWeight: 'bold', //Set Header text style
-          },
+          },*/
+          
         }}
       />
     </Stack.Navigator>
+                     
+    //const //Environment = ({ route, navigation }) => {
+      //return (onPress={()=>navigate('Login')};
+                    
+                
 );
     
 }
@@ -190,11 +197,7 @@ function Sidebar() {
           options={{ drawerLabel: 'Charter Party KPI' }}
           component={firstScreenStack} />
 
-        <Drawer.Screen
-          name="VesselPerformance"
-          options={{ drawerLabel: 'Vessel Performance KPI' }}
-          component={VesselPerformanceScreenStack} />
-
+        
         <Drawer.Screen
           name="Environment"
           options={{ drawerLabel: 'Environmental KPI' }}
@@ -209,6 +212,12 @@ function Sidebar() {
           name="Maintenance"
           options={{ drawerLabel: 'Maintenace KPI' }}
           component={maintenanceScreenStack} />
+
+        <Drawer.Screen
+          name="Logout"
+          options={{ drawerLabel: 'Logout' }}
+          component={LoginStack} />
+
      
       </Drawer.Navigator>
       

@@ -7,7 +7,7 @@ const checkboxComponent = () => {
   const [checkboxValue, setCheckboxValue] = React.useState([
    { label: ' Ballast        ', value: 'ballast', checked: false },
    { label: ' Loaded         ', value: 'loaded', checked: false },
-   { label: ' Ignore         ', value: 'ignore', checked: false },
+  
  ])
 
  const checkboxHandler = (value, index) => {
@@ -53,7 +53,7 @@ return (
  
  </CheckBox>
  <Text 
-          style={{ fontSize:25}}
+          style={{ fontSize:25,fontFamily:"SemiBold"}}
  >{checkbox.label}</Text>
         </View>
       ))}
@@ -73,21 +73,14 @@ const styles = StyleSheet.create({
   container: {
       flex: 1,
       flexDirection:'row',
-     //alignItems: 'center',
-     //justifyContent: 'center',
-     marginLeft:50,
-      paddingTop: 20,
+     marginLeft:20,
+      MarginTop: 40,
       //backgroundColor: 'white'
   },
   paragraph: {
-      margin: 24,
-      //fontSize: 25,
-      //fontWeight: 'bold',
-      //textAlign: 'center',
-     
-     // color: '#34495e'
+     Margin:40,
      fontSize: 30,
-     fontFamily: "Roboto-Regular",
+     fontFamily: "SemiBold",
      //color: "#007aff"
   },
 

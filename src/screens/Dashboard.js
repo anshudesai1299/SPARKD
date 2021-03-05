@@ -35,10 +35,10 @@ const DashBoard = ({ navigation }) => {
        <View style={{flex:1,flexDirection: 'row', justifyContent: 'space-around', paddingTop :20}}>
           <Gauge/>
           <View style={styles.boarderClass}>
-            <Text style={{fontSize :20,} }>CP Speed   : 11.50 kn</Text>
-            <Text  style={{fontSize :20,}}>CP FuelCon : 15.00 MT</Text>
-            <Text style={{fontSize :20,}}>avg Speed  : 12.50 kn</Text>
-            <Text style={{fontSize :20,}}>avg FuelCon: 16.00 MT</Text>
+            <Text style={{fontSize :20,fontFamily:"SemiBold"} }>CP Speed      : 11.50 kn</Text>
+            <Text  style={{fontSize :20,fontFamily:"SemiBold"}}>CP Fuel Cons. : 15.00 MT</Text>
+            <Text style={{fontSize :20,fontFamily:"SemiBold"}}>Avg Speed      : 12.50 kn</Text>
+            <Text style={{fontSize :20,fontFamily:"SemiBold"}}>Avg Fuel Cons. : 16.00 MT</Text>
           </View>
           <Gauge/>
         </View>
@@ -49,10 +49,8 @@ const DashBoard = ({ navigation }) => {
   <View style={{flex:1,flexDirection: 'row', justifyContent: 'space-evenly', paddingTop :20}}>
   <Dssdropdown/>
   <WindForce/>
-  
-</View>
 <Checkbox/>
-
+</View>
 <ScrollView>
 <View style={styles.container}>
 <Linegraph/>
@@ -95,6 +93,7 @@ const DashBoard = ({ navigation }) => {
       alignItems:"center",
       borderWidth: 3,
       borderColor: 'black',
+      fontFamily:"SemiBold"
   },
 
   boarderClass1:
@@ -109,7 +108,7 @@ const DashBoard = ({ navigation }) => {
   textStyle: {
       fontSize: 30,
       marginLeft:40,
-      fontFamily: "Roboto-Regular"
+      fontFamily:"SemiBold"
   },
 
   container: {

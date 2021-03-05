@@ -3,12 +3,9 @@ import { Picker, View, Text, StyleSheet } from "react-native";
 
 export default class ReviewBar extends React.Component{
     state = {
-        selectedcat: "",
+        selectedcat: "4",
         category: [
-          {
-            itemName: "0 ",
-            value: "0 ",
-          },
+         
           {
             itemName: "1",
             value: "1 ",
@@ -45,6 +42,10 @@ export default class ReviewBar extends React.Component{
             itemName: "9 ",
             value: "9 ",
           },
+          {
+            itemName: "10 ",
+            value: "10 ",
+          },
         ]
       };
     
@@ -57,7 +58,7 @@ render()
         <View style={styles.container}>
 
           
-         <Text style= {styles.textStyle}>DSS</Text>
+         <Text style= {styles.textStyle}>DSS less than :</Text>
           <Picker
             itemStyle={styles.itemStyle}
             mode="dropdown"
@@ -86,26 +87,14 @@ render()
 
         
 const styles = StyleSheet.create({
-    viewStyle: {
-      flex: 1,
-      alignSelf: "top",
-      marginTop: 20,
-      marginLeft :50,
-      flexDirection: "row",
-      width: "92%",
-     // justifyContent: "space-around",
-     // alignItems: "top",
-      //backgroundColor:'white',
-      opacity:50
-    },
-
+   
     container: {
       flex: 1,
       flexDirection:'row',
       alignItems: 'left',
      //justifyContent: 'center',
       marginLeft:0,
-      paddingTop: 40,
+      marginTop: 40,
      // backgroundColor: 'white'
   },
     itemStyle: {
@@ -115,19 +104,19 @@ const styles = StyleSheet.create({
     },
     pickerStyle: {
       width: 100,
-     // marginTop: 20,
+      //marginTop: 40,
       //marginHorizontal : "50%",
       marginLeft :"2%",
       alignItems: "top",
       height: 30,
       color: "#007aff",
       fontSize: 20,
-      fontFamily: "Roboto-Regular"
+      fontFamily: "SemiBold"
     },
     textStyle: {
       fontSize: 30,
       marginLeft:"20%",
-      fontFamily: "Roboto-Regular",
+      fontFamily: "SemiBold",
       textAlign:"left",
 
     },
